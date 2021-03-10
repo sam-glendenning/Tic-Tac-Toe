@@ -1,0 +1,93 @@
+React is a JS library developed by Facebook.
+It is declarative, efficient and flexible
+Used for building UIs out of components
+
+React uses a few different kinds of components:
+React.Component subclasses - use the React.Component base class, implemented with class X extends React.Component
+Subclasses use the render method to return a description of what to see on the screen, or a react element
+Once we define a component, we can refer to it with <ComponentName />
+Components can receive arguments called props. They function like function arguments.
+Example:
+
+class Car extends React.Component
+{
+	render()
+	{
+		return <h2>I am a {this.props.brand}!</h2>;
+	}
+}
+
+class Garage extends React.Component
+{
+	render()
+	{
+		return
+		(
+			<div>
+			<h1>Who lives in my garage?</h1>
+			<Car brand="Ford" />
+			</div>
+		);
+	}
+}
+
+Components which are responsible for sending and receiving data to a component that instantiates them are considered controlled by that component.
+
+JSX
+
+JSX is a syntax extension to Javascript. A basic example is this:
+const element = <h1>Hello, World!</h1>;
+
+JSX produces React elements which are rendered on the DOM. 
+Instead of separating markup and logic in separate files, we separate concerns instead using components that contain markup and logic.
+A concern could be a login portal, a home page, etc.
+
+Component State
+Components can "remember" things using state
+Components can have state by setting this.state in their constructors. It should be considered private to each component
+
+On Events
+In React, it is conventional to use on[Event] names for props which represent events and handle[Event] for the methods which handle the events. 
+For example, onClick() and handleClick()
+
+Data mutability
+Data is mutable if it is able to be directly changed with no special process
+React aims for immutability to allow for simpler implementation, easier to detect changes and for determining when to re-render the page
+Using the shouldComponentUpdate function helps build pure components 
+This allows you to define a method to compare two data namespaces and see if they match. If they do, return true, otherwise false
+This method is called automatically whenever you make changes to your data
+Alternatively, this can all be automated by having classes which extend React.PureComponent
+Note this does a shallow field comparison and may not go deep enough to check full equality
+
+Function Components
+Function components are components that only contain a render method and don't require their own state
+This is done by replacing the component class with a function which receives a props argument
+
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
